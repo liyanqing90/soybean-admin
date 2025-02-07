@@ -74,5 +74,17 @@ export const generatedRoutes: GeneratedRoute[] = [
       constant: true,
       hideInMenu: true
     }
+  },
+  {
+    name: 'project',
+    path: '/project',
+    component: 'layout.base$view.project',
+    meta: {
+      title: 'project',
+      i18nKey: 'route.project',
+      icon: 'mdi:projector',
+      order: 2
+
+    }
   }
 ];
