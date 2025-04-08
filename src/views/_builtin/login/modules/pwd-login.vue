@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue';
-import { $t } from '@/locales';
 import { loginModuleRecord } from '@/constants/app';
+import { useAuthStore } from '@/store/modules/auth';
 import { useRouterPush } from '@/hooks/common/router';
 import { useFormRules, useNaiveForm } from '@/hooks/common/form';
-import { useAuthStore } from '@/store/modules/auth';
+import { $t } from '@/locales';
 
 defineOptions({
   name: 'PwdLogin'
@@ -107,13 +107,7 @@ async function handleAccountLogin(account: Account) {
       </div>
       <NDivider class="text-14px text-#666 !m-0">{{ $t('page.login.pwdLogin.otherAccountLogin') }}</NDivider>
       <div class="flex-center gap-12px">
-        <NButton
-          v-for="item in accounts"
-          :key="item.key"
-          :loading="authStore.loginLoading"
-          type="primary"
-          @click="handleAccountLogin(item)"
-        >
+        <NButton v-for="item in accounts" :key="item.key" type="primary" @click="handleAccountLogin(item)">
           {{ item.label }}
         </NButton>
       </div>
